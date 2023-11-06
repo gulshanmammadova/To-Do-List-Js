@@ -19,12 +19,12 @@ const deleteElement = (id) => {
 const inputListChanger = (e) => {
     
     e.preventDefault();
-    if ( input.value.trim().length >= 3 ) {
-        console.log(input.value.trim() == "");
-        tasks.push(input.value);
+    if ( input.value.trim().length  ) {
+        tasks.push(input.value.trim());
         renderList();
         input.value = '';
     } else {       
+        input.value = '';
      
         span.style.display = 'block';
     }
@@ -57,7 +57,7 @@ const filterAZ = () => {
 }
 
 const filterZA = () => {
-    tasks.sort().reverse();
+    tasks.sort((a, b) => b.localeCompare(a));
     renderList();
 }
 
